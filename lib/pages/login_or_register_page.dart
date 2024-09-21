@@ -16,7 +16,7 @@ class LoginOrRegisterPage extends StatelessWidget {
             Image.asset("lib/image/icon_first_page.png"),
             ButtonLoginRegister(text: "Im new, sign me up", onPress: () {}),
             SizedBox(
-              height: 15,
+              height: 14,
             ),
             ButtonLoginRegister(text: "Login", onPress: () {})
           ],
