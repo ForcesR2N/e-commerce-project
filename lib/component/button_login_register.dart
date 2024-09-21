@@ -15,7 +15,7 @@ class ButtonLoginRegister extends StatelessWidget {
     required this.text,
     this.width = 400.0,
     this.height = 50.0,
-    this.bgButton = Colors.white,
+    this.bgButton = AppColor.bgNomorHp,
     this.txtColor = Colors.black,
     this.outlineColor = Colors.transparent,
     required this.onPress,
