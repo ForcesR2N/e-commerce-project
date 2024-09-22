@@ -6,5 +6,8 @@ class AppColor {
   static const Color backgroundColor = Color(0xFFF0F3BD);
   static const Color textColor = Color(0xFF333333);
   static const Color bgNomorHp = Color(0xFFE3E2E2);
-  static const Color primarycolor = Color(0xFFFF782B);
+  static const Color primaryColor = Color(0xFFF98A31);
+  static const Color secondaryColor = Color(0xFFFFE3CD);
+  static const kcontentColor = Color(0xffF5F5F5);
+  static const kprimaryColor = Color(0xffff660e);
 }
