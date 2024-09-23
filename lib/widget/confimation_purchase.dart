@@ -3,31 +3,42 @@ import 'package:get/get.dart';
 import 'package:e_commerce_project/component/my_color.dart';
 import 'package:e_commerce_project/models/items.dart';
 
-// Helper function for the confirmation dialog
-void showConfirmationDialog(BuildContext context, VoidCallback onAdd, Sneaker sneaker) {
+void showConfirmationDialog(
+    BuildContext context, VoidCallback onAdd, Sneaker sneaker) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text("Confirm Purchase"),
-        content: const Text("Are you sure you want to add this item to your cart?"),
+        backgroundColor: AppColor.secondaryColor,
+        title: const Text(
+          "Confirm Purchase",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+        ),
+        content: const Text(
+          "Are you sure you want to add this item to your cart?",
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+        ),
         actions: [
           TextButton(
-            child: const Text("Cancel"),
+            child: const Text(
+              "Cancel",
+              style: TextStyle(color: Colors.black),
+            ),
             onPressed: () {
-              Navigator.of(context).pop(); // Close the dialog without adding to cart
+              Navigator.of(context).pop();
             },
           ),
           ElevatedButton(
-            child: const Text("Yes"),
+            child: const Text(
+              "Yes",
+              style: TextStyle(color: Colors.black),
+            ),
             onPressed: () {
-              Navigator.of(context).pop(); // Close the dialog
-              onAdd(); // Add item to cart
-
-              // Show Snackbar after adding to cart
+              Navigator.of(context).pop();
+              onAdd();
               Get.snackbar(
                 "Added to Cart",
-                "${sneaker.name ?? 'Product'} has been added to your cart", // Null safety for product name
+                "Product has been added to your cart",
                 snackPosition: SnackPosition.BOTTOM,
                 backgroundColor: AppColor.primaryColor.withOpacity(0.8),
                 colorText: Colors.white,

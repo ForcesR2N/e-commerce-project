@@ -18,24 +18,21 @@ class ProductItemDisplay extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Product Image
           Container(
             height: 160,
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               image: DecorationImage(
-                image: NetworkImage(sneaker.mainPictureUrl ??
-                    'https://via.placeholder.com/150'), // Fallback if image is null
+                image: NetworkImage(sneaker.mainPictureUrl),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(height: 10),
 
-          // Product Name
           Text(
-            sneaker.name ?? 'Unnamed Product', // Null safety for product name
+            sneaker.name ?? 'Unnamed Product',
             maxLines: 2,
             style: const TextStyle(
               fontSize: 16,
@@ -43,25 +40,20 @@ class ProductItemDisplay extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-
-          // Price and Add to Cart Button
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Price: \$${(sneaker.retailPriceCents ?? 0) / 100}", // Null safety for price
+                "Price: \$${(sneaker.retailPriceCents ?? 0) / 100}", 
                 style: const TextStyle(
                   color: Colors.black54,
                 ),
               ),
-
-              // Add to Cart Button
               SizedBox(
                 width: 100,
                 height: 30,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Call the helper function to show the confirmation dialog
                     showConfirmationDialog(context, onAdd, sneaker);
                   },
                   style: ElevatedButton.styleFrom(

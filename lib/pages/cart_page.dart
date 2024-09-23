@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartPage extends StatelessWidget {
-  final SelectedProductsController selectedProductsController = Get.find();
+  final SelectedProductsController selectedProductsController =
+      Get.put(SelectedProductsController());
+
   CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Cart"),
+        title: Text(
+          "Order",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27),
+        ),
       ),
       body: Obx(() {
         if (selectedProductsController.selectedProducts.isEmpty) {

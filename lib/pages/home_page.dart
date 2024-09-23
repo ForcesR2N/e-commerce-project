@@ -17,7 +17,9 @@ class HomePage extends StatelessWidget {
     final List<Widget> menus = [
       Home(),
       CartPage(),
-      ProfilePage(),
+      ProfilePage(
+        username: 'Rizal',
+      ),
     ];
 
     return Obx(
