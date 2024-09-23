@@ -1,6 +1,5 @@
 import 'package:e_commerce_project/component/my_color.dart';
 import 'package:e_commerce_project/controller/selected_product.dart';
-import 'package:e_commerce_project/models/items.dart';
 import 'package:e_commerce_project/models/items_display.dart';
 import 'package:e_commerce_project/service/get_controller.dart';
 import 'package:e_commerce_project/widget/image_slider.dart';
