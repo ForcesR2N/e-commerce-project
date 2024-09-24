@@ -57,7 +57,7 @@ class ProfilePage extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.offAllNamed('/login');
+                  Get.offAllNamed('/loginPage');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,
