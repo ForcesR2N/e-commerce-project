@@ -30,7 +30,6 @@ class ProductItemDisplay extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-
           Text(
             sneaker.name ?? 'Unnamed Product',
             maxLines: 2,

@@ -1,12 +1,9 @@
 import 'dart:convert';
 
-// Function to parse JSON data and return Product object
 Product productFromJson(String str) => Product.fromJson(json.decode(str));
 
-// Function to convert Product object back to JSON
 String productToJson(Product data) => json.encode(data.toJson());
 
-// Main Product class which includes Healthcheck and Sneakers
 class Product {
   Healthcheck healthcheck;
   List<Sneaker> sneakers;
@@ -18,8 +15,8 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         healthcheck: Healthcheck.fromJson(json["healthcheck"]),
-        sneakers:
-            List<Sneaker>.from(json["sneakers"].map((x) => Sneaker.fromJson(x))),
+        sneakers: List<Sneaker>.from(
+            json["sneakers"].map((x) => Sneaker.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -28,7 +25,6 @@ class Product {
       };
 }
 
-// Healthcheck class for basic health status
 class Healthcheck {
   String message;
 
@@ -45,7 +41,6 @@ class Healthcheck {
       };
 }
 
-// Sneaker class containing only the fields you need
 class Sneaker {
   String name;
   List<double> sizeRange;
@@ -63,10 +58,10 @@ class Sneaker {
     required this.details,
   });
 
-  // Factory method to create Sneaker object from JSON
   factory Sneaker.fromJson(Map<String, dynamic> json) => Sneaker(
         name: json["name"],
-        sizeRange: List<double>.from(json["size_range"].map((x) => x?.toDouble())),
+        sizeRange:
+            List<double>.from(json["size_range"].map((x) => x?.toDouble())),
         mainPictureUrl: json["main_picture_url"],
         releaseDate: json["release_date"] == null
             ? null
@@ -75,7 +70,6 @@ class Sneaker {
         details: json["details"],
       );
 
-  // Convert Sneaker object to JSON
   Map<String, dynamic> toJson() => {
         "name": name,
         "size_range": List<dynamic>.from(sizeRange.map((x) => x)),
@@ -87,7 +81,6 @@ class Sneaker {
 }
 
 void main() {
-  // Example JSON data
   const jsonData = '''
   {
     "healthcheck": {
@@ -114,10 +107,9 @@ void main() {
   }
   ''';
 
-  // Parsing the JSON data
   final product = productFromJson(jsonData);
 
-  // Iterate through each sneaker and print the filtered data
+
   for (var sneaker in product.sneakers) {
     print('Product Name: ${sneaker.name}');
     print('Available Sizes: ${sneaker.sizeRange}');

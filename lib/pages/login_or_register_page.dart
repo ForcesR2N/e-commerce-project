@@ -1,4 +1,3 @@
-import 'package:e_commerce_project/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:e_commerce_project/component/button_login_register.dart';
@@ -15,14 +14,12 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // Function to handle Login/Register
-  void _handleLoginOrRegister() {
+  void _handleLogin() {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
     if (username == 'rizal' && password == '2727') {
-      // Use Get.toNamed for a temporary check
-      Get.toNamed('/homePage'); // Navigate to home page
+      Get.toNamed('/homePage');
     } else {
       Get.snackbar(
         "Login Failed",
@@ -34,22 +31,35 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
     }
   }
 
+  void _handleRegister() {
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+
+    if (username.isNotEmpty && password.isNotEmpty) {
+      Get.toNamed('/homePage');
+    } else {
+      Get.snackbar(
+        "Registration Failed",
+        "Please provide a valid username and password.",
+        backgroundColor: Colors.redAccent,
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primaryColor, // Use your custom color here
+      backgroundColor: AppColor.primaryColor,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo or Icon
               Image.asset("lib/image/icon_first_page.png"),
-
               const SizedBox(height: 20),
-
-              // Username Input Field
               TextField(
                 controller: _usernameController,
                 decoration: InputDecoration(
@@ -64,10 +74,7 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
                 ),
                 style: TextStyle(color: Colors.white),
               ),
-
               const SizedBox(height: 20),
-
-              // Password Input Field
               TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(
@@ -80,20 +87,25 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
                     borderSide: BorderSide.none,
                   ),
                 ),
-                obscureText: true, // Hide the password
+                obscureText: true,
                 style: TextStyle(color: Colors.white),
               ),
-
               const SizedBox(height: 20),
-
-              // Login/Register Button
               ButtonLoginRegister(
                 text: "Login or Register",
-                onPress:
-                    _handleLoginOrRegister, // Call the function to handle login/register
+                onPress: _handleLogin,
+                bgButton: Colors.blue, 
+                txtColor: Colors.white, 
+                outlineColor: Colors.transparent,
               ),
-
               const SizedBox(height: 14),
+              ButtonLoginRegister(
+                text: "Create new account",
+                onPress: _handleRegister,
+                bgButton: Colors.green, 
+                txtColor: Colors.white, 
+                outlineColor: Colors.transparent, 
+              ),
             ],
           ),
         ),

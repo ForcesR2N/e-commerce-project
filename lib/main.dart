@@ -1,5 +1,7 @@
+import 'package:e_commerce_project/bindings/bind_bottomNavBar.dart';
 import 'package:e_commerce_project/pages/home_page.dart';
 import 'package:e_commerce_project/pages/login_or_register_page.dart';
+import 'package:e_commerce_project/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,10 +16,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/homePage',
+      initialRoute: '/loginPage',
       getPages: [
-        GetPage(name: '/login', page: () => const LoginOrRegisterPage()),
-        GetPage(name: '/homePage', page: () => const HomePage()),
+        GetPage(
+          name: '/login',
+          page: () => const LoginOrRegisterPage(),
+        ),
+        GetPage(
+            name: '/loginPage',
+            page: () => const LoginPage(),
+            binding: BindBottomnavbar()),
+        GetPage(
+            name: '/homePage',
+            page: () => const HomePage(),
+            binding: BindBottomnavbar()),
+        GetPage(
+            name: '/loginOrRegister', page: () => const LoginOrRegisterPage()),
       ],
     );
   }
