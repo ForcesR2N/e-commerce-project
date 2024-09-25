@@ -60,7 +60,7 @@ class ProductItemDisplay extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 5),
                   ),
                   child: const Text(
-                    "Add To Cart",
+                    "ADD TO CART",
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.white,

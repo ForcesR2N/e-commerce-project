@@ -92,7 +92,7 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
               ),
               const SizedBox(height: 20),
               ButtonLoginRegister(
-                text: "Login or Register",
+                text: "Login",
                 onPress: _handleLogin,
                 bgButton: Colors.blue, 
                 txtColor: Colors.white, 
