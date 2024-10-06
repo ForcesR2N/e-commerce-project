@@ -1,3 +1,4 @@
+import 'package:e_commerce_project/component/my_color.dart';
 import 'package:e_commerce_project/controller/selected_product.dart';
 import 'package:e_commerce_project/models/items.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +12,16 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+        return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Order",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27),
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        backgroundColor: AppColor.primaryColor,
+        title: const Text(
+          "Cart",
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        centerTitle: true,
       ),
       body: Obx(() {
         if (selectedProductsController.selectedProducts.isEmpty) {

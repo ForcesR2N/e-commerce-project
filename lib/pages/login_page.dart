@@ -15,20 +15,13 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset("lib/image/icon_first_page.png"),
+            SizedBox(height: 50),
             ButtonLoginRegister(
-              text: "Im new, sign me up",
+              text: "Get Started",
               onPress: () {
                 Get.toNamed('/loginOrRegister');
               },
             ),
-            SizedBox(
-              height: 14,
-            ),
-            ButtonLoginRegister(
-                text: "Login",
-                onPress: () {
-                  Get.toNamed('/loginOrRegister');
-                })
           ],
         ),
       ),

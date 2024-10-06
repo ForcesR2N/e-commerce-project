@@ -1,17 +1,15 @@
+import 'package:e_commerce_project/controller/bottom_navbar_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:e_commerce_project/component/button_login_register.dart';
 import 'package:e_commerce_project/component/my_color.dart';
 
-class LoginOrRegisterPage extends StatefulWidget {
-  const LoginOrRegisterPage({super.key});
+class LoginOrRegisterPage extends StatelessWidget {
+  final BottomNavController controller = Get.put(BottomNavController());
+  LoginOrRegisterPage({super.key});
 
-  @override
-  State<LoginOrRegisterPage> createState() => _LoginOrRegisterPageState();
-}
-
-class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
 
   void _handleLogin() {
@@ -72,6 +70,9 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
                     borderSide: BorderSide.none,
                   ),
                 ),
+                onChanged: (value) {
+                  controller.changedName(value);
+                },
                 style: TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 20),
@@ -94,17 +95,17 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
               ButtonLoginRegister(
                 text: "Login",
                 onPress: _handleLogin,
-                bgButton: Colors.blue, 
-                txtColor: Colors.white, 
+                bgButton: Colors.blue,
+                txtColor: Colors.white,
                 outlineColor: Colors.transparent,
               ),
               const SizedBox(height: 14),
               ButtonLoginRegister(
                 text: "Create new account",
                 onPress: _handleRegister,
-                bgButton: Colors.green, 
-                txtColor: Colors.white, 
-                outlineColor: Colors.transparent, 
+                bgButton: Colors.green,
+                txtColor: Colors.white,
+                outlineColor: Colors.transparent,
               ),
             ],
           ),
