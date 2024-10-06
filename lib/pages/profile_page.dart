@@ -1,20 +1,22 @@
+import 'package:e_commerce_project/component/my_color.dart';
+import 'package:e_commerce_project/controller/bottom_navbar_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String username;
+  final BottomNavController controller = Get.find();
 
-  const ProfilePage({
+  ProfilePage({
     super.key,
-    required this.username,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
         title: const Text(
           "Profile",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -35,20 +37,13 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Text(
-              username,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              "Flutter Developer",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
+            Obx(
+              () => Text(
+                "${controller.name}",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
               ),
             ),
             const SizedBox(height: 40),

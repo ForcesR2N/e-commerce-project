@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/login',
-          page: () => const LoginOrRegisterPage(),
+          page: () => LoginOrRegisterPage(),
         ),
         GetPage(
             name: '/loginPage',
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             page: () => const HomePage(),
             binding: BindBottomnavbar()),
         GetPage(
-            name: '/loginOrRegister', page: () => const LoginOrRegisterPage()),
+            name: '/loginOrRegister', page: () => LoginOrRegisterPage()),
       ],
     );
   }

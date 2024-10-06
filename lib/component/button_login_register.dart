@@ -24,26 +24,27 @@ class ButtonLoginRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: width,
-        height: height,
-        child: ElevatedButton(
-          onPressed: onPress,
-          style: OutlinedButton.styleFrom(
-            side: BorderSide(color: outlineColor, width: 1.3),
-            foregroundColor: txtColor,
-            backgroundColor: bgButton,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            elevation: 1,
+      width: width,
+      height: height,
+      child: ElevatedButton(
+        onPressed: onPress,
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(color: outlineColor, width: 1.3),
+          foregroundColor: txtColor,
+          backgroundColor: bgButton,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
           ),
-          child: Text(
-            text,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
+          elevation: 1,
+        ),
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

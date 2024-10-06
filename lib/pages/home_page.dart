@@ -11,15 +11,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BottomNavController bottomNavController =
-        Get.find();
+    final BottomNavController bottomNavController = Get.find();
 
     final List<Widget> menus = [
       Home(),
       CartPage(),
-      ProfilePage(
-        username: 'Rizal',
-      ),
+      ProfilePage(),
     ];
 
     return Obx(
@@ -31,7 +28,7 @@ class HomePage extends StatelessWidget {
             onTap: bottomNavController.changedTabIndex,
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home_rounded), label: "Home"), 
+                  icon: Icon(Icons.home_rounded), label: "Home"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.shopping_cart_checkout_rounded),
                   label: "My Cart"),
